@@ -28,7 +28,7 @@ module.exports = {
     const routes = require('./routes')({ express })
 
     if (!isDevelopment) {
-      app.use('/', express.static(path.join(__dirname, './../../main')))
+      app.use('/', express.static(path.join(__dirname, './../../dist')))
     }
 
     app.use('/api', routes)

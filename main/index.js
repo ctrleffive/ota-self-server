@@ -1,23 +1,28 @@
 const { app, BrowserWindow, dialog } = require('electron')
 const server = require('../api/server')
 
-let mainWindow
+let splashWindow
 
 const launchSplash = async () => {
-  mainWindow = new BrowserWindow({
+  splashWindow = new BrowserWindow({
     width: 150,
     height: 150,
     frame: false,
     maximizable: false,
     resizable: false,
-    fullscreenable: false
+    fullscreenable: false,
+    alwaysOnTop: true
   })
-  mainWindow.loadFile('main/index.html')
+  splashWindow.loadFile('main/splash.html')
 
   const retryServer = async () => {
     try {
       await server.start()
-      dialog.showMessageBox('Success!')
+
+      const welcomeWindow = new BrowserWindow({})
+      welcomeWindow.loadFile('main/welcome.html')
+
+      splashWindow.close()
     } catch (error) {
       dialog.showMessageBox(null, {
         type: 'warning',
@@ -40,8 +45,8 @@ const launchSplash = async () => {
     }
   }
 
-  mainWindow.on('closed', () => {
-    mainWindow = null
+  splashWindow.on('closed', () => {
+    splashWindow = null
   })
 
   retryServer()
@@ -56,7 +61,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  if (mainWindow === null) {
+  if (splashWindow === null) {
     launchSplash()
   }
 })
