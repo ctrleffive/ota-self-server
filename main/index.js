@@ -17,6 +17,7 @@ const launchSplash = async () => {
   const retryServer = async () => {
     try {
       await server.start()
+      dialog.showMessageBox('Success!')
     } catch (error) {
       dialog.showMessageBox(null, {
         type: 'warning',
@@ -28,7 +29,7 @@ const launchSplash = async () => {
         defaultId: 1,
         title: 'Error!',
         message: 'Failed to start server!',
-        detail: 'Port 3456 is still using by some other application.\nMake sure that 3456 port is available and retry.'
+        detail: 'Port 3456 is used by some other application.\nMake sure that 3456 port is available and retry.'
       }, (response) => {
         if (response === 1) {
           retryServer()

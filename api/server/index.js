@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const path = require('path')
 const bodyParser = require('body-parser')
 const portUsage = require('tcp-port-used')
+const isDevelopment = require('electron-is-dev')
 
 module.exports = {
   start: () => {
@@ -25,15 +27,19 @@ module.exports = {
 
     const routes = require('./routes')({ express })
 
-    app.use('/', routes)
+    if (!isDevelopment) {
+      app.use('/', express.static(path.join(__dirname, './../../main')))
+    }
+
+    app.use('/api', routes)
 
     return new Promise((resolve, reject) => {
       const port = 3456
       portUsage.waitUntilFree(port, 500, 5000)
         .then(() => {
-          const server = app.listen(port, () => {
+          app.listen(port, () => {
             console.info('API server is listening..')
-            resolve(server)
+            resolve()
           })
         })
         .catch((error) => reject(error))
