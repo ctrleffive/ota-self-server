@@ -1,0 +1,17 @@
+{
+  "name": "ota-self-server",
+  "version": "0.0.1",
+  "description": "Software framework which have its own server and OTA updates.",
+  "main": "main/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": {
+    "name": "Chandu J S",
+    "email": "app.coder@outlook.in"
+  },
+  "devDependencies": {
+    "electron": "6.0.3"
+  }
+}
