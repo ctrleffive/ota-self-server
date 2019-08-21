@@ -11,7 +11,7 @@
       },
       "runtimeArgs": ["."],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "ng-serve"
+      // "preLaunchTask": "ng-serve"
     },
     {
       "name": "Debug Renderer",
