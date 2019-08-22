@@ -10,8 +10,8 @@
 </head>
 <body class="draggable bg">
   <div class="titlebar no-drag">
-    <div class="title-button close-button"><img src="./close.svg" alt="Close"></div>
-    <div class="title-button minimize-button"><img src="./minimize.svg" alt="Minimize"></div>
+    <div class="title-button close-button" id="close-button"><img src="./close.svg" alt="Close"></div>
+    <div class="title-button minimize-button" id="minimize-button"><img src="./minimize.svg" alt="Minimize"></div>
   </div>
   <div class="content-wrap">
     <div class="app-title">
@@ -19,11 +19,12 @@
       <span class="version">v0.0.1</span>
     </div>
     <div class="timer-wrap">
-      <span class="time-section">00</span>
-      <span class="time-section">00</span>
-      <span class="time-section">00</span>
+      <span id="hours" class="time-section">00</span>
+      <span id="minutes" class="time-section">00</span>
+      <span id="seconds" class="time-section">00</span>
     </div>
-    <div class="status">RUNNING</div>
+    <div class="status wait" id="status">WAITING</div>
   </div>
+  <script src="./script.js"></script>
 </body>
 </html>

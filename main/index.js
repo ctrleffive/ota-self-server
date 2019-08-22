@@ -29,7 +29,9 @@ const launchSplash = async () => {
         width: 300,
         height: 200,
         resizable: false,
-        alwaysOnTop: true
+        webPreferences: {
+          nodeIntegration: true
+        }
       })
       welcomeWindow.loadFile('main/welcome.html')
 

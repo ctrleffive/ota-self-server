@@ -167,3 +167,8 @@ body {
   padding: 5px;
   border-radius: 3px;
 }
+
+.status.wait {
+  background-color: #FF9800;
+  box-shadow: #ff98006e 0 4px 15px;
+}
