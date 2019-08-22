@@ -1,0 +1,4 @@
+@root = http://localhost:3456/api
+
+### Test Flight
+GET {{root}}/
