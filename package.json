@@ -1,0 +1,61 @@
+{
+  "name": "ota-self-server",
+  "version": "0.0.1",
+  "description": "Software framework which have its own server and OTA updates.",
+  "main": "main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "ng build --prod && electron-builder"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Chandu J S",
+    "email": "app.coder@outlook.in"
+  },
+  "build": {
+    "appId": "in.chandujs.ota-self-server",
+    "directories": {
+      "output": "dist/app"
+    }
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.800.3",
+    "@angular/animations": "^8.0.2",
+    "@angular/cdk": "^8.1.2",
+    "@angular/cli": "^8.0.3",
+    "@angular/common": "^8.0.2",
+    "@angular/compiler": "^8.0.2",
+    "@angular/compiler-cli": "^8.0.2",
+    "@angular/core": "^8.0.2",
+    "@angular/forms": "^8.0.2",
+    "@angular/http": "^8.0.0-beta.10",
+    "@angular/language-service": "^8.0.2",
+    "@angular/platform-browser": "^8.0.2",
+    "@angular/platform-browser-dynamic": "^8.0.2",
+    "@angular/router": "^8.0.2",
+    "@types/node": "^12.0.8",
+    "codelyzer": "^5.1.0",
+    "core-js": "^2.6.9",
+    "electron": "6.0.3",
+    "electron-builder": "^21.2.0",
+    "moment": "^2.24.0",
+    "mutationobserver-shim": "^0.3.3",
+    "rxjs": "^6.5.2",
+    "ts-helpers": "^1.1.2",
+    "ts-node": "^8.3.0",
+    "tsickle": "^0.35.0",
+    "tslib": "^1.10.0",
+    "tslint": "^5.17.0",
+    "typescript": "~3.4.5",
+    "web-animations-js": "^2.3.1",
+    "zone.js": "^0.9.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "electron-db": "^0.15.2",
+    "electron-is-dev": "^1.1.0",
+    "express": "^4.17.1",
+    "tcp-port-used": "^1.0.1"
+  }
+}

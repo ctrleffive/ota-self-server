@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Debug",
+      "configurations": ["Main", "Renderer"]
+    }
+  ],
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Main",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+      },
+      "runtimeArgs": ["."],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Renderer",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "ng-serve",
+      "url": "http://localhost:4200/#/",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
