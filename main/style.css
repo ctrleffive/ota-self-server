@@ -1,6 +1,169 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+Application Styles
+*/
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+}
+
+.bg:before {
+  content: '';
+  z-index: -1;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.4;
+}
+
+.splash {
+  background-image: url(./splash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg {
+  background-image: url(./bg.svg);
+}
+
+.draggable {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+.titlebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.title-button {
+  float: right;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 8px 15px;
+  transition: 0.2s background-color;
+}
+
+.title-button img {
+  transition: 0.1s filter;
+  height: 100%;
+}
+
+.title-button.minimize-button:hover {
+  background-color: #e6e6e6;
+}
+
+.title-button.close-button:hover {
+  background-color: #ff4c3e;
+}
+
+.title-button.close-button:hover > img {
+  filter: invert(1)
+}
+
+.content-wrap {
+  padding: 38px 25px;
+}
+
+.app-title {
+  font-weight: 100;
+  font-size: 2rem;
+}
+
+.version {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #00000069;
+}
+
+.timer-wrap {
+  margin: 15px 0px;
+  font-size: 4rem;
+  color: #005179;
+}
+
+.time-section {
+  position: relative;
+  left: -2px;
+}
+
+.time-section:after {
+  content: ':';
+  position: absolute;
+  top: 2px
+}
+
+.time-section:last-child:after {
+  display: none;
+}
+
+.time-section:last-child {
+  opacity: 0.5;
+}
+
+.status {
+  font-size: 0.7rem;
+  margin-left: 3px;
+  letter-spacing: 2px;
+  background-color: #4CAF50;
+  box-shadow: #4caf508a 0 4px 15px;
+  display: inline-block;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
 }

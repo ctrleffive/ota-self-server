@@ -5,13 +5,16 @@ let splashWindow
 
 const launchSplash = async () => {
   splashWindow = new BrowserWindow({
-    width: 150,
-    height: 150,
+    width: 105,
+    height: 105,
     frame: false,
     maximizable: false,
     resizable: false,
     fullscreenable: false,
-    alwaysOnTop: true
+    alwaysOnTop: true,
+    transparent: true,
+    thickFrame: false,
+    focusable: false
   })
   splashWindow.loadFile('main/splash.html')
 
@@ -19,7 +22,15 @@ const launchSplash = async () => {
     try {
       await server.start()
 
-      const welcomeWindow = new BrowserWindow({})
+      const welcomeWindow = new BrowserWindow({
+        frame: false,
+        fullscreen: false,
+        maximizable: false,
+        width: 300,
+        height: 200,
+        resizable: false,
+        alwaysOnTop: true
+      })
       welcomeWindow.loadFile('main/welcome.html')
 
       splashWindow.close()
@@ -32,8 +43,8 @@ const launchSplash = async () => {
         ],
         noLink: true,
         defaultId: 1,
-        title: 'Error!',
-        message: 'Failed to start server!',
+        title: 'Intranet Server',
+        message: 'Failed to start intranet server!',
         detail: 'Port 3456 is used by some other application.\nMake sure that 3456 port is available and retry.'
       }, (response) => {
         if (response === 1) {
