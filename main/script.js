@@ -1,35 +1,35 @@
-(() => {
-  const { remote } = require('electron')
+'use strict'
 
-  document.getElementById('minimize-button').addEventListener('click', (e) => {
-    const window = remote.getCurrentWindow()
-    window.minimize()
-  })
+const { remote } = require('electron')
 
-  document.getElementById('close-button').addEventListener('click', (e) => {
-    const window = remote.getCurrentWindow()
-    window.close()
-  })
+document.getElementById('minimize-button').addEventListener('click', (e) => {
+  const window = remote.getCurrentWindow()
+  window.minimize()
+})
 
-  const status = document.getElementById('status')
+document.getElementById('close-button').addEventListener('click', (e) => {
+  const window = remote.getCurrentWindow()
+  window.close()
+})
 
-  const hoursHandle = document.getElementById('hours')
-  const minutesHandle = document.getElementById('minutes')
-  const secondsHandle = document.getElementById('seconds')
+const status = document.getElementById('status')
 
-  const runTimer = () => {
-    status.innerHTML = 'RUNNING'
-    status.classList.remove('wait')
-    const startTime = Date.now()
-    setInterval(() => {
-      let totalSeconds = Math.floor((Date.now() - startTime) / 1000)
+const hoursHandle = document.getElementById('hours')
+const minutesHandle = document.getElementById('minutes')
+const secondsHandle = document.getElementById('seconds')
 
-      hoursHandle.innerHTML = ('0' + Math.floor(totalSeconds / 3600)).slice(-2)
-      totalSeconds %= 3600
-      minutesHandle.innerHTML = ('0' + Math.floor(totalSeconds / 60)).slice(-2)
-      secondsHandle.innerHTML = ('0' + totalSeconds % 60).slice(-2)
-    }, 1000)
-  }
+const startEverything = () => {
+  status.innerHTML = 'RUNNING'
+  status.classList.remove('wait')
+  const startTime = Date.now()
+  setInterval(() => {
+    let totalSeconds = Math.floor((Date.now() - startTime) / 1000)
 
-  setTimeout(runTimer, 1000)
-})()
+    hoursHandle.innerHTML = ('0' + Math.floor(totalSeconds / 3600)).slice(-2)
+    totalSeconds %= 3600
+    minutesHandle.innerHTML = ('0' + Math.floor(totalSeconds / 60)).slice(-2)
+    secondsHandle.innerHTML = ('0' + totalSeconds % 60).slice(-2)
+  }, 1000)
+}
+
+setTimeout(startEverything, 1000)
