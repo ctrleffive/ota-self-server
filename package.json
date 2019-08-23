@@ -1,6 +1,6 @@
 {
   "name": "ota-self-server",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Software framework which have its own server and OTA updates.",
   "main": "main/index.js",
   "scripts": {
